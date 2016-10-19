@@ -1,0 +1,12 @@
+<?php
+
+//test if all field are present and not empty
+if ( isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST['email']))
+{
+    echo 'the fields are ok';
+}
+else {
+    echo 'carefull, some fields are blank';
+}
+
+?>
