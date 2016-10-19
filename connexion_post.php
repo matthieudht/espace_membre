@@ -29,12 +29,14 @@ catch (exception $error)
 }
 
 
-//test for good identification
+//make password crypted with sha1
+$pass_hach = sha1($_POST['password']);
 
-$request= $mybase->prepare('SELECT pseudo, pass FROM Membres WHERE pseudo = ? AND pass = ?');
+//test for good identification
+$request= $mybase->prepare('SELECT id, pseudo, pass FROM Membres WHERE pseudo = ? AND pass = ?');
 $request->execute(array(
     $_POST['pseudo'],
-    $_POST['password']));
+    $pass_hach));
 $result = $request->fetch();
 
 if (!$result)
@@ -43,8 +45,14 @@ if (!$result)
 }
 else
 {
-    echo 'hi wlcome';
+    //start session if all ok
+    session_start();
+    $_SESSION['id'] = $result['id'];
+    $_SESSION['pseudo'] = $result['pseudo'];
+    echo 'hi wlcome'.$_SESSION['id'] . $_SESSION['pseudo'];
+    header("location: profile.php");
 }
 
+// redirecting to profile.php
 
-?>
+
