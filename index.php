@@ -12,7 +12,7 @@
 
     <p>S'inscrire : </p>
 
-    <form action="formulaire_post1.php" method="post">
+    <form action="formulaire_post.php" method="post">
       <label for="pseuso">Pseudo : </label>
       <input type="text" id="pseudo" name="pseudo"/><br/>
       <label for="pass">Mot de passe : </label>
