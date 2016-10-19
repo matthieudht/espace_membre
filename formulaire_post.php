@@ -33,6 +33,7 @@ catch (exception $error)
 $request = $mybase->prepare('SELECT * FROM Membres WHERE pseudo = ?');
 $request->execute(array($_POST['pseudo']));
 $result = $request->fetch();
+$request->closeCursor;
 echo $result['pseudo'].'<br/>';
 
 if ($result)
@@ -46,6 +47,20 @@ else
 
 
 
+// insert data from form into database (verification ok)
+$request = $mybase->prepare('INSERT INTO Membres(pseudo, pass, email, date_inscription) VALUES(?, ?, ?, CURRENT_DATE())');
+$request->execute(array(
+    $_POST['pseudo'],
+    $_POST['password'],
+    $_POST['email']));
+echo 'insertion ok';
+$request->closeCursor;
+
+
+
     
+
+
+
 
 ?>
