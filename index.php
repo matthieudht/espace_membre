@@ -12,7 +12,7 @@
 
     <p>S'inscrire : </p>
 
-    <form action="formulaire_post.php" method="post">
+    <form action="incription_post.php" method="post">
       <label for="pseuso">Pseudo : </label>
       <input type="text" id="pseudo" name="pseudo"/><br/>
       <label for="pass">Mot de passe : </label>
@@ -25,13 +25,13 @@
     </form>
 
     <p>Se connecter:</p>
-    <form action="connexion.php" method="post">
+    <form action="connexion_post.php" method="post">
       <label for="pseuso">Pseudo : </label>
-      <input type="text" id="pseudo" name="pseudo1"/><br/>
+      <input type="text" id="pseudo" name="pseudo"/><br/>
       <label for="pass">Mot de passe : </label>
-      <input type="password" id="pass" name="password1"/><br/>
+      <input type="password" id="pass" name="password"/><br/>
       <label for="verifpass">verif Mot de passe : </label>
-      <input type="password" id="verifpass" name="verifpassword1"/><br/>
+      <input type="password" id="verifpass" name="verifpassword"/><br/>
       <input type="submit" value="Connexion"/>
     </form>
   </body>
