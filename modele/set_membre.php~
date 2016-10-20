@@ -3,7 +3,7 @@
 
 function set_membre($pseudo, $password, $email)
 {
-    global $mybase;
+
     //make password crypted  with sha1
     $pass_hach = sha1($password);
 

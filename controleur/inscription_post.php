@@ -20,9 +20,10 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
     {
 	die('error'.$error->getMessage());
     }
-
+    //including modele file 
     include_once('../modele/get_pseudo.php');
-    echo 'including good'.'<br/>';
+    
+    echo 'including get_pseudo good'.'<br/>';
     $result = get_pseudo($pseudo);
     echo 'function good : ' . $result;
 
@@ -32,19 +33,11 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
     }
     else
     {
-	//echo 'good choice of pseudo'.'<br/>';
-
-	//make password crypted  with sha1
-	$pass_hach = sha1($_POST['password']);
-
-	// insert data from form into database (verification ok)
-	$request = $mybase->prepare('INSERT INTO Membres(pseudo, pass, email, date_inscription) VALUES(?, ?, ?, CURRENT_DATE())');
-	$request->execute(array(
-	    $_POST['pseudo'],
-	    $pass_hach,
-	    $_POST['email']));
-	echo 'insertion ok';
-	$request->closeCursor;
+	//including modele file
+	include('../modele/set_membre.php');
+	echo ' including set_membre goog';
+	set_membre($pseudo, $password, $email);
+	echo 'membre add ';
 	
 	//redirecting page
 	header("location: ../vue/index.php");
