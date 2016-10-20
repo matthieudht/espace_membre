@@ -10,16 +10,6 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
     $verifpassword = $_POST['verifpassword'];
     $email = $_POST['email'];
     
-    /*
-    echo 'the fields are ok'.'<br/>';
-    foreach ($_POST as $key => $value)
-    {
-	echo $key.' : '.$value."<br/>";
-    };
-    echo empty($_POST['pseudo']).'<br/>';
-    echo empty($_POST['password']).'<br/>';*/
-
-    
     //connexion to database
     try
     {
@@ -31,13 +21,10 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
 	die('error'.$error->getMessage());
     }
 
-
-    // test if pseudo is not already taken in database
-    $request = $mybase->prepare('SELECT * FROM Membres WHERE pseudo = ?');
-    $request->execute(array($_POST['pseudo']));
-    $result = $request->fetch();
-    $request->closeCursor;
-    echo $result['pseudo'].'<br/>';
+    include_once('../modele/get_pseudo.php');
+    echo 'including good'.'<br/>';
+    $result = get_pseudo($pseudo);
+    echo 'function good : ' . $result;
 
     if ($result)
     {
@@ -60,7 +47,7 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
 	$request->closeCursor;
 	
 	//redirecting page
-	header("location: index.php");
+	header("location: ../vue/index.php");
 	
     }  
 }
@@ -70,7 +57,7 @@ else {
 
 
 
-    
+
 
 
 
