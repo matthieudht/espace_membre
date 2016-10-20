@@ -17,7 +17,7 @@ session_start();
 	Pseudo: <?php echo $_SESSION['pseudo']?>
       </p>
       <a href="edit-profile.php" >Editer le profile</a>
-      <a href="deconnexion.php" >deconnexion</a>
+      <a href="../controleur/deconnexion.php" >deconnexion</a>
     </article>
 
 
