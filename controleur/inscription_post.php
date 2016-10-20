@@ -10,16 +10,9 @@ if ((isset($_POST['pseudo'], $_POST['password'], $_POST['verifpassword'], $_POST
     $verifpassword = $_POST['verifpassword'];
     $email = $_POST['email'];
     
-    //connexion to database
-    try
-    {
-	$mybase = new PDO('mysql:host=localhost;dbname=espace_membre;charset=utf8', 'dehondtmatthieu', 'mD120989');
-	echo 'connexion to espace_membre database is ok'.'<br/>';
-    }
-    catch (exception $error)
-    {
-	die('error'.$error->getMessage());
-    }
+    include('../modele/connexion_sql.php');
+
+    
     //including modele file 
     include_once('../modele/get_pseudo.php');
     

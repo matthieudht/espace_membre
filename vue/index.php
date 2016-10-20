@@ -12,7 +12,7 @@
 
     <p>S'inscrire : </p>
 
-    <form action="../controleur/inscription_post.php" method="post">
+    <form action="controleur/inscription_post.php" method="post">
       <label for="pseuso">Pseudo : </label>
       <input type="text" id="pseudo" name="pseudo"/><br/>
       <label for="pass">Mot de passe : </label>
@@ -25,7 +25,7 @@
     </form>
 
     <p>Se connecter:</p>
-    <form action="../controleur/connexion_post.php" method="post">
+    <form action="controleur/connexion_post.php" method="post">
       <label for="pseuso">Pseudo : </label>
       <input type="text" id="pseudo" name="pseudo"/><br/>
       <label for="pass">Mot de passe : </label>
